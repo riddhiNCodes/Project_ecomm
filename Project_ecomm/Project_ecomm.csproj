@@ -204,7 +204,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Diverse Cultural Jewelry Logo - Shaadi Shringar %281%29.png" />
     <Content Include="Images\Diverse Cultural Jewelry Logo - Shaadi Shringar.png" />
+    <Content Include="Images\icon.png" />
     <Content Include="Images\logo_asp.png" />
+    <Content Include="Images\titleicon.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
