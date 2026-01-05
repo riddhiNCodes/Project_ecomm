@@ -13,102 +13,102 @@
 
 </head>
 <body>
+    @*<div class="fixed-top">*@
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <div class="col-md-6 col-sm-6">
+                    <div class="logo justify-content-center">
+                        <img src="~/Images/logo_asp.png" alt="logo" />
+                        <span class="text-center">Jewels of culture, Crowned in Love</span>
+                    </div>
+                </div>
 
-    <nav class="navbar navbar-expand-lg ">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Product/Index">Bridal Collection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/About">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-warning text-dark px-3 ms-lg-3"
+                               style="border-radius: 20px;font-size:17px;"
+                               href="/Account/Login">
+                                Signing In
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <div class="container-fluid">
-            <div class="col-md-6 col-sm-6">
-                <div class="logo justify-content-center">
-                    <img src="~/Images/logo_asp.png" alt="logo" />
-                    <span class="text-center">Jewels of culture, Crowned in Love</span>
-                </div>
-            </div>
+            <div class="p-3 subhead">
+                <div class="row align-items-center">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Product/Index">Bridal Collection</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/About">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-warning text-dark px-3 ms-lg-3"
-                           style="border-radius: 20px;font-size:17px;"
-                           href="/Account/Login">
-                            Signing In
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="p-3 subhead ">
-            <div class="row align-items-center">
-
-                <!-- BRAND NAME (takes maximum space) -->
-                <div class="col">
-                    <span class="name">
-                       Shaadi Shringar
-                    </span>
-                </div>
-
-                <!-- SEARCH -->
-                <div class="col-auto">
-                    <div class="search-box p-2">
-                        <input type="search" placeholder="Search">
-                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <!-- BRAND NAME (takes maximum space) -->
+                    <div class="col">
+                        <span class="name">
+                            Shaadi Shringar
+                        </span>
                     </div>
-                </div>
 
-                <!-- STATES DROPDOWN -->
-                <div class="col-auto">
-                    <div class="btn-group shaadi-dropdown">
-                        <button type="button" class="btn btn-state">Shop by State</button>
-                        <button type="button"
-                                class="btn btn-state dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown">
-                            <span class="visually-hidden">Toggle Dropdown</span>
+                    <!-- SEARCH -->
+                    <div class="col-auto">
+                        <div class="search-box p-2">
+                            <input type="search" placeholder="Search">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- STATES DROPDOWN -->
+                    <div class="col-auto">
+                        <div class="btn-group shaadi-dropdown">
+                            <button type="button" class="btn btn-state">Shop by State</button>
+                            <button type="button"
+                                    class="btn btn-state dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Maharashtra</a></li>
+                                <li><a class="dropdown-item" href="#">Rajasthan</a></li>
+                                <li><a class="dropdown-item" href="#">Gujarat</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">All States</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- CART -->
+                    <div class="col-auto">
+                        <button class="cart-btn">
+                            <i class="bi bi-bag-heart"></i>
+                            Cart
                         </button>
-
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Maharashtra</a></li>
-                            <li><a class="dropdown-item" href="#">Rajasthan</a></li>
-                            <li><a class="dropdown-item" href="#">Gujarat</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">All States</a></li>
-                        </ul>
                     </div>
-                </div>
 
-                <!-- CART -->
-                <div class="col-auto">
-                    <button class="cart-btn">
-                        <i class="bi bi-bag-heart"></i>
-                        Cart
-                    </button>
-                </div>
+                    <!-- WISHLIST -->
+                    <div class="col-auto">
+                        <i class="fa-solid fa-heart "
+                           style="color:#ed5566;font-size:30px; "></i>
+                    </div>
 
-                <!-- WISHLIST -->
-                <div class="col-auto">
-                    <i class="fa-solid fa-heart "
-                       style="color:#ed5566;font-size:30px; "></i>
                 </div>
-
             </div>
         </div>
-    </div>
-  
+    @*</div>*@
    
 </body>
 </html>

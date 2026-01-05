@@ -1,0 +1,54 @@
+﻿body {
+    font-family: 'Playfair Display', sans-serif;
+    margin: 0;
+    padding: 0;
+   
+}
+.carousel-inner {
+    height: 420px;
+}
+
+.carousel-img {
+    height: 420px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Dark gradient overlay */
+.carousel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.1));
+}
+
+/* Caption styling */
+.carousel-caption {
+    bottom: 20%;
+}
+
+    .carousel-caption h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+
+    .carousel-caption p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+/* Rounded arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.header span {
+    font-family: 'Tangerine', cursive,'Lavishly Yours';
+    font-size: 40px;
+    font-weight: bold;
+    color: #d4af37;
+/*    text-decoration: underline #d4af37;*/
+    padding-left: 5px;
+}

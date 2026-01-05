@@ -1,12 +1,15 @@
 ﻿body {
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri;
+  
+
 }
+
 nav {
     background-color: #420f18;
     overflow: hidden;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
-
+   
 }
 .logo {
     padding: 2px 2px;

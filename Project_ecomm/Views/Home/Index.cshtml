@@ -1,33 +1,128 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/CssFile/index.css" rel="stylesheet" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+    <div class="container-fluid mt-5 px-4">
+        <div id="carouselExampleAutoplaying"
+             class="carousel slide carousel-fade shadow-lg rounded-4 overflow-hidden"
+             data-bs-ride="carousel"
+             data-bs-interval="5000">
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="3"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+
+                <div class="carousel-item active">
+                    <img src="~/Images/banner2.png" class="carousel-img" alt="Cultural Collection">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <h2>Cultural Elegance</h2>
+                        <p>Inspired by heritage, crafted with love</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="~/Images/Diverse Cultural Jewelry Logo - Shaadi Shringar.png" class="carousel-img" alt="Shaadi Jewelry">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption text-start">
+                        <h2>Elegant Bridal Jewelry</h2>
+                        <p>Celebrate traditions with timeless designs</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="~/Images/banner1.png" class="carousel-img" alt="ThreadMuse">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption text-end">
+                        <h2>Bridal Collection</h2>
+                        <p>Style that speaks tradition</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="~/Images/banner3.png" class="carousel-img" alt="Indian Collection">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption text-start">
+                        <h2>Traditional Elegance</h2>
+                        <p>Inspired by heritage, crafted with love</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-5">
+        <div class="header">
+            <h1><i>Welcome</i>,<span>Riddhi</span></h1>
+        </div>
+
+        @*<div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Recommended for You
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item’s accordion body.</div>
+                </div>
+            </div>
+        </div>*@
+
+        <div class="row mt-3 p-2">
+            <div class="card-header-tabs">
+                <div class="card-header">
+                    <h4>Recommended for You</h4>
+                </div>
+                <div class="row">
+                    <div class="col mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="~/Images/icon.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="~/Images/icon.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </div>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
