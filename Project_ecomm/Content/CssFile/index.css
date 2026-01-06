@@ -52,3 +52,118 @@
 /*    text-decoration: underline #d4af37;*/
     padding-left: 5px;
 }
+.shringr-card {
+    width: 260px; /* change to 220px for square */
+    height: 180px;
+    background: linear-gradient(135deg,#fffaf3,#f3e6d8);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+    .shringr-card::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1.5px dashed #c9a24d;
+        border-radius: 14px;
+    }
+
+/* State Name */
+.state-badge {
+    background: #7a1f2b; /* change per state */
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.shringr-card:hover {
+    transform: translateY(-6px);
+    transition: 0.3s;
+}
+.title {
+    text-align: center;
+    font-size: 32px;
+    margin: 30px 0;
+    color: #7a1f2b;
+    letter-spacing: 1px;
+}
+
+/* Grid */
+.state-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 25px;
+    padding: 0 40px 40px;
+}
+
+/* Card */
+.shringr-card {
+    height: 160px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+    /* Decorative Border */
+    .shringr-card::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1.5px dashed rgba(255,255,255,0.6);
+        border-radius: 14px;
+    }
+
+    /* State Text */
+    .shringr-card span {
+        background: rgba(255,255,255,0.85);
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-size: 22px;
+        color: #3d2b1f;
+        letter-spacing: 1px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Hover */
+    .shringr-card:hover {
+        transform: translateY(-8px) scale(1.03);
+    }
+
+/* STATE COLORS */
+.raj {
+    background: linear-gradient(135deg,#7a1f2b,#b76e79);
+}
+
+.mh {
+    background: linear-gradient(135deg,#9c6b30,#d2b48c);
+}
+
+.punjab {
+    background: linear-gradient(135deg,#c0392b,#f1c40f);
+}
+
+.bengal {
+    background: linear-gradient(135deg,#8e44ad,#e84393);
+}
+
+.kashmir {
+    background: linear-gradient(135deg,#1e3799,#4a69bd);
+}
+
+.south {
+    background: linear-gradient(135deg,#006266,#26a69a);
+}
+.c1 {
+    background: #faf7f2;
+    font-family: 'Georgia', serif;
+}
