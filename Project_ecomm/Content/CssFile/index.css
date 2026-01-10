@@ -2,7 +2,6 @@
     font-family: 'Playfair Display', sans-serif;
     margin: 0;
     padding: 0;
-   
 }
 .carousel-inner {
     height: 420px;
@@ -25,7 +24,6 @@
 .carousel-caption {
     bottom: 20%;
 }
-
     .carousel-caption h2 {
         font-size: 2.2rem;
         font-weight: 700;
@@ -52,118 +50,145 @@
 /*    text-decoration: underline #d4af37;*/
     padding-left: 5px;
 }
-.shringr-card {
-    width: 260px; /* change to 220px for square */
-    height: 180px;
-    background: linear-gradient(135deg,#fffaf3,#f3e6d8);
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.royal-container {
+    padding: 45px 40px 55px; /* reduced top, balanced bottom */
+    margin: 60px auto;
+    border-radius: 28px;
+    /*    background: linear-gradient( 135deg, #2b0f0f, #5a2d0c, #8b5a2b, #d4af37 );*/
+    background: linear-gradient( 135deg, #2b0f0f, #5a2d0c, #8b5a2b, #d4af37 );
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45), inset 0 0 70px rgba(212,175,55,0.3);
     position: relative;
+    overflow: hidden;
 }
-    .shringr-card::before {
+
+
+
+    /* Soft Ornamental Glow */
+    .royal-container::before {
         content: "";
         position: absolute;
-        inset: 12px;
-        border: 1.5px dashed #c9a24d;
-        border-radius: 14px;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(255,215,100,0.25), transparent 40%), radial-gradient(circle at bottom right, rgba(255,180,50,0.2), transparent 45%);*/
+        pointer-events: none;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.45), inset 0 0 70px rgba(212,175,55,0.3);
     }
 
-/* State Name */
-.state-badge {
-    background: #7a1f2b; /* change per state */
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: 22px;
-    letter-spacing: 1px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-.shringr-card:hover {
-    transform: translateY(-6px);
-    transition: 0.3s;
-}
-.title {
+.royal-title {
+/*    font-family: 'Tangerine',cursive;*/
+    font-size: 2.4rem;
+    margin-bottom: 28px; 
+    letter-spacing: 2px;
     text-align: center;
-    font-size: 32px;
-    margin: 30px 0;
-    color: #7a1f2b;
-    letter-spacing: 1px;
+    color: #fff;
+}
+.royal-divider {
+    width: 140px;
+    height: 2px; /* THIN */
+    margin: 10px auto 30px; /* balanced spacing */
+    background: linear-gradient( 90deg, transparent, #d4af37, transparent );
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(212,175,55,0.6);
 }
 
-/* Grid */
 .state-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 25px;
-    padding: 0 40px 40px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:22px;
 }
 
-/* Card */
 .shringr-card {
-    height: 160px;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
+    height: 300px;
+    border-radius: 14px;
+    border: 1px solid #d4af37;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+    overflow: hidden;
     cursor: pointer;
-    transition: 0.4s;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease;
 }
 
-    /* Decorative Border */
-    .shringr-card::before {
+    .shringr-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 22px 40px rgba(212,175,55,0.4);
+    }
+
+    .shringr-card img {
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+    }
+
+    /* Dark gradient overlay */
+    .shringr-card::after {
         content: "";
         position: absolute;
-        inset: 12px;
-        border: 1.5px dashed rgba(255,255,255,0.6);
-        border-radius: 14px;
-    }
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+   
+        }
 
-    /* State Text */
     .shringr-card span {
-        background: rgba(255,255,255,0.85);
-        padding: 12px 28px;
-        border-radius: 30px;
-        font-size: 22px;
-        color: #3d2b1f;
+        position: absolute;
+        bottom: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+       font-family: 'Tangerine', cursive;
+/*        color: #fff;*/
+        color: #f7e7b4;
+        font-size: 2.3rem;
+        font-weight:700;
         letter-spacing: 1px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        text-shadow: 0 3px 8px rgba(0,0,0,0.8);
+    }
+.culture-strip {
+    max-width: 950px;
+    margin: 0 auto 40px;
+    padding: 18px 35px;
+    text-align: center;
+    background: linear-gradient( 90deg, rgba(128, 0, 32, 0.9), rgba(212, 175, 55, 0.85), rgba(128, 0, 32, 0.9) );
+    border-radius: 60px;
+    border: 1px solid rgba(212,175,55,0.6);
+    box-shadow: 0 0 15px rgba(212,175,55,0.35), inset 0 0 10px rgba(0,0,0,0.25);
+    animation: fadeSlide 1.8s ease-out forwards;
+}
+
+    /* Sanskrit line */
+    .culture-strip .sanskrit {
+        font-family: 'Sumana', cursive;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0;
+        letter-spacing: 1px;
     }
 
-    /* Hover */
-    .shringr-card:hover {
-        transform: translateY(-8px) scale(1.03);
+    .culture-strip .english {
+        font-family: 'Tangerine', cursive;
+        font-size: 2.1rem;
+        color: #f9e8b0;
+        margin-top: 4px;
+        opacity: 0.95;
     }
 
-/* STATE COLORS */
-.raj {
-    background: linear-gradient(135deg,#7a1f2b,#b76e79);
+/* Subtle animation */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.culture-strip:hover {
+    box-shadow: 0 0 25px rgba(212,175,55,0.6), inset 0 0 12px rgba(0,0,0,0.3);
+    transition: 0.4s ease;
 }
 
-.mh {
-    background: linear-gradient(135deg,#9c6b30,#d2b48c);
-}
 
-.punjab {
-    background: linear-gradient(135deg,#c0392b,#f1c40f);
-}
-
-.bengal {
-    background: linear-gradient(135deg,#8e44ad,#e84393);
-}
-
-.kashmir {
-    background: linear-gradient(135deg,#1e3799,#4a69bd);
-}
-
-.south {
-    background: linear-gradient(135deg,#006266,#26a69a);
-}
-.c1 {
-    background: #faf7f2;
-    font-family: 'Georgia', serif;
-}
+        

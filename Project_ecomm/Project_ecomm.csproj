@@ -210,6 +210,17 @@
     <Content Include="Images\Diverse Cultural Jewelry Logo - Shaadi Shringar.png" />
     <Content Include="Images\icon.png" />
     <Content Include="Images\logo_asp.png" />
+    <Content Include="Images\States\ass1.jpg" />
+    <Content Include="Images\States\b1.jpg" />
+    <Content Include="Images\States\g1.jpg" />
+    <Content Include="Images\States\j1.jpg" />
+    <Content Include="Images\States\k1.jpg" />
+    <Content Include="Images\States\m1.jpg" />
+    <Content Include="Images\States\m2.jpg" />
+    <Content Include="Images\States\p1.jpg" />
+    <Content Include="Images\States\r1.jpg" />
+    <Content Include="Images\States\r2.jpg" />
+    <Content Include="Images\States\S1.jpg" />
     <Content Include="Images\titleicon.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
