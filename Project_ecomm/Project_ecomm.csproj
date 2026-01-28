@@ -208,6 +208,12 @@
     <Content Include="Images\banner3.png" />
     <Content Include="Images\Diverse Cultural Jewelry Logo - Shaadi Shringar %281%29.png" />
     <Content Include="Images\Diverse Cultural Jewelry Logo - Shaadi Shringar.png" />
+    <Content Include="Images\Earings\earcuff1.jpg" />
+    <Content Include="Images\Earings\hoop1.jpg" />
+    <Content Include="Images\Earings\jhumka1.png" />
+    <Content Include="Images\Earings\stud1.jpg" />
+    <Content Include="Images\Earings\studs1.jpg" />
+    <Content Include="Images\Earings\studs2.jpg" />
     <Content Include="Images\icon.png" />
     <Content Include="Images\logo_asp.png" />
     <Content Include="Images\States\ass1.jpg" />
@@ -228,6 +234,7 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Images\Earings\bali1.webp" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
