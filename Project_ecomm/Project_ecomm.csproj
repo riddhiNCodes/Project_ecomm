@@ -206,6 +206,10 @@
     <Content Include="Images\banner1.png" />
     <Content Include="Images\banner2.png" />
     <Content Include="Images\banner3.png" />
+    <Content Include="Images\banners\heritage1.png" />
+    <Content Include="Images\banners\heritage2.png" />
+    <Content Include="Images\banners\heritage3.png" />
+    <Content Include="Images\banners\heritage4.png" />
     <Content Include="Images\Diverse Cultural Jewelry Logo - Shaadi Shringar %281%29.png" />
     <Content Include="Images\Diverse Cultural Jewelry Logo - Shaadi Shringar.png" />
     <Content Include="Images\Earings\earcuff1.jpg" />

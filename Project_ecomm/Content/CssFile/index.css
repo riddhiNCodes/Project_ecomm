@@ -254,6 +254,36 @@ section h2{
     font-size:18px;
 }
 
- 
+
+/*.btn-gold {
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    color: #000;
+    border-radius: 30px;
+    padding: 10px 28px;
+    font-weight: 600;
+}
+
+    .btn-gold:hover {
+        background: #f5d27a;
+    }*/
+
+
+.carousel-img-heritage {
+   
+    object-fit:contain;
+}
+
+
+.carousel-wrapper {
+    background: linear-gradient( 180deg, #4b0f1c 0%, #7a1e2c 35%, #f7f3ef 100% );
+   
+}
+.carousel {
+    border-radius: 22px;
+    box-shadow: 0 25px 60px rgba(75, 15, 28, 0.45), inset 0 0 40px rgba(255, 215, 150, 0.25);
+}
+
+
+
 
         
