@@ -203,6 +203,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Bangles\BB1.jpg" />
+    <Content Include="Images\Bangles\MB1.jpg" />
+    <Content Include="Images\Bangles\NB1.jpg" />
+    <Content Include="Images\Bangles\RB1.jpg" />
+    <Content Include="Images\Bangles\SB1.jpg" />
     <Content Include="Images\banner1.png" />
     <Content Include="Images\banner2.png" />
     <Content Include="Images\banner3.png" />
