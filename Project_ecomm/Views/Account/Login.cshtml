@@ -3,63 +3,99 @@
 @{
     ViewBag.Title = "Log in";
 }
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <div class="row">
-        <div class="col-md-8">
-            <section id="loginForm">
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <h4>Use a local account to log in.</h4>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="row">
-                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+<link href="~/Content/CssFile/login.css" rel="stylesheet" />
+
+<main>
+
+    <div class="container-fluid vh-100 login-wrapper">
+        <div class="row h-100">
+
+            <!-- LEFT BRANDING -->
+            
+                <div class="col-md-6 d-none d-md-flex branding-section">
+                    <div class="text-center m-auto">
+                        <img src="~/Images/logo_asp.png" />
+                        <h2>Shaadi Shringar</h2>
+                        <p>Adorning traditions for your special day,
+                       “Because your story deserves perfection.”</p>
+                    </div>
+                </div>
+         
+            <!-- RIGHT LOGIN FORM -->
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="login-card">
+
+                    <h1 class="text-center fw-bold" style="color: #420f18; font-family:Tangerine;">Welcome Back</h1>
+                    <h6 class="text-center">“Adorn your moments with tradition..”</h6>
+
+                    <div class="royal-divider"></div>
+
+                    @using (Html.BeginForm("Login", "Account",
+                        new { ReturnUrl = ViewBag.ReturnUrl },
+                        FormMethod.Post,
+                        new { role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+
+                        <!-- EMAIL -->
+                        <div class="form-group mb-3">
+                            @Html.TextBoxFor(m => m.Email, new
+                       {
+                           @class = "form-control gold-input",
+                           placeholder = "Email address"
+                       })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
-                    </div>
-                    <div class="row">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
-                        <div class="col-md-10">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
+                        <!-- PASSWORD -->
+                        <div class="form-group mb-3">
+                            @Html.PasswordFor(m => m.Password, new
+                       {
+                           @class = "form-control gold-input",
+                           placeholder = "Password"
+                       })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="offset-md-2 col-md-10">
-                            <div class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
-                            </div>
+
+                        <!-- REMEMBER ME -->
+                        <div class="form-check mb-3">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label" })
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="offset-md-2 col-md-10">
-                            <input type="submit" value="Log in" class="btn btn-outline-dark" />
+
+                        <!-- BUTTON -->
+                        <button type="submit" class="btn gold-btn w-100">
+                            Log in
+                        </button>
+
+
+
+                        <div class="text-center mt-3">
+                            @Html.ActionLink("New here?  Create an account ! ", "Register", null, new { @class = "register-link" })
                         </div>
-                    </div>
-                    <p>
-                        @Html.ActionLink("Register as a new user", "Register")
-                    </p>
-                    @* Enable this once you have account confirmation enabled for password reset functionality
-                        <p>
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                        </p>*@
-                }
-            </section>
-        </div>
-        <div class="col-md-4">
-            <section id="socialLoginForm">
-                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-            </section>
+
+
+                    }
+                <p class="text-center shlok mt-4">
+
+                    <i class="fi fi-tr-ring-diamond" style="color: #420f18;font-size:20px;"></i>
+                    श्रृंगार जो परंपरा से जुड़ा हो
+                </p>
+
+<p class="text-center">
+    <i class="fi fi-sr-user-lock"></i>             
+   Your Information is securely Encrypted.</p>
+                </div>
+            </div>
         </div>
     </div>
 </main>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,88 @@
+﻿.login-wrapper {
+    background: #f5efe7;
+    font-family: Pacifico;
+}
+
+
+.branding-section {
+    background: linear-gradient(135deg, #4b0f1c, #7b1e2b);
+    color: #fff;
+}
+
+    .branding-section img {
+        height: 300px;
+        filter: drop-shadow(3px 5px 8px #f7ca65);
+    }
+    .branding-section h2 {
+        color: #f3d27c;
+        font-size: 38px;
+        font-family: Lavishly Yours;
+    }
+.royal-divider {
+    width: 100px;
+    height: 1px; 
+    margin: 10px auto 30px;
+    background: linear-gradient( 90deg, transparent, #d4af37, transparent );
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(212,175,55,0.6);
+}
+
+ .login-card {
+            background: #fffaf3;
+            padding: 40px;
+            width: 420px;
+            border-radius: 18px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+.gold-input {
+    border: 1.5px solid #d4af37;
+    padding: 12px;
+    font-family: Pacifico;
+}
+
+    .gold-input:focus {
+      
+        border-color: #d4af37;
+        outline: none;
+        box-shadow: 0 0 10px rgba(212,175,55,0.6);
+    }
+
+.gold-btn {
+    background: linear-gradient(135deg, #d69a37, #b8962e);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 12px;
+    font-family: Pacifico;
+}
+
+    .gold-btn:hover {
+        box-shadow: 0 0 10px rgba(212,175,55,0.8);
+        color: white;
+    }
+
+
+.register-link {
+    color: #7b1e2b;
+    font-weight:600;
+   
+}
+    .register-link:hover {
+        color: #db9d3a;
+        
+    }
+
+
+.shlok {
+    font-size: 15px;
+    color: #7b1e2b;
+    font-family: Lavishy yours;
+    box-shadow: 2px 3px 5px #98674b;
+    padding:2px 2px;
+}
+
+.login-card p.text-muted {
+    font-size: 14px;
+}

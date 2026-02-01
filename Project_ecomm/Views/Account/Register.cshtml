@@ -2,40 +2,107 @@
 @{
     ViewBag.Title = "Register";
 }
+<link href="~/Content/CssFile/login.css" rel="stylesheet" />
 
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
 
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        <h4>Create a new account.</h4>
-        <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="row">
-            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+<main>
+
+
+    <div class="container-fluid vh-150 login-wrapper">
+        <div class="row h-100">
+
+            <!-- LEFT BRANDING -->
+            <div class="col-md-6 d-none d-md-flex branding-section">
+                <div class="text-center m-auto">
+                    <img src="~/Images/logo_asp.png" />
+                    <h2>Shaadi Shringar</h2>
+                    <p>
+                        Adorning traditions for your special day,
+                        “Because your story deserves perfection.”
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
+            <!-- RIGHT REGISTER FORM -->
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-3">
+                <div class="login-card">
+
+                    <h1 class="text-center fw-bold" style="color: #420f18; font-family:Tangerine;">
+                        Create Your Bridal Account
+                    </h1>
+                    <h6 class="text-center">“ Begin your shaadi shringar journey with us..”</h6>
+
+                    <div class="royal-divider mb-1"></div>
+
+                    @using (Html.BeginForm("Register", "Account",
+                        FormMethod.Post,
+                        new { role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary("", new { @class = "text-danger text-center mb-3" })
+
+                        <!-- EMAIL -->
+                        <div class="form-group mb-3">
+                            @Html.TextBoxFor(m => m.Email, new
+                            {
+                                @class = "form-control gold-input",
+                                placeholder = "Email address"
+                            })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <div class="form-group mb-3">
+                            @Html.PasswordFor(m => m.Password, new
+                            {
+                                @class = "form-control gold-input",
+                                placeholder = "Password"
+                            })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+
+                        <!-- CONFIRM PASSWORD -->
+                        <div class="form-group mb-4">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new
+                            {
+                                @class = "form-control gold-input",
+                                placeholder = "Confirm password"
+                            })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+
+                        <!-- REGISTER BUTTON -->
+                        <button type="submit" class="btn gold-btn w-100">
+                            Create Account
+                        </button>
+
+                        <div class="text-center mt-3">
+                            @Html.ActionLink(
+                                "Already have an account? Log in",
+                                "Login",
+                                null,
+                                new { @class = "register-link" })
+                        </div>
+                    }
+
+                    <p class="text-center shlok mt-4">
+                        <i class="fi fi-tr-ring-diamond" style="color: #420f18;font-size:20px;"></i>
+
+                        श्रृंगार जो परंपरा से जुड़ा हो
+                    </p>
+
+                    <p class="text-center">
+                        <i class="fi fi-sr-user-lock"></i>
+                        Your Information is securely Encrypted.
+                    </p>
+                </div>
             </div>
+
         </div>
-        <div class="row">
-            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="row">
-            <div class="offset-md-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-outline-dark" />
-            </div>
-        </div>
-    }
+    </div>
 </main>
 
 @section Scripts {
