@@ -1,0 +1,80 @@
+﻿@model Project_ecomm.Models.Product
+@{
+    ViewBag.Title = "Add Product";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="card shadow-lg rounded-4">
+            <div class="card-header bg-dark text-white">
+                <h4 class="mb-0">➕ Add New Product</h4>
+            </div>
+
+            <div class="card-body">
+                @if (ViewBag.Success != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Success</div>
+                }
+
+                @using (Html.BeginForm("AddProducts", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Name)
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Category)
+                            @Html.TextBoxFor(m => m.Category, new { @class = "form-control", placeholder = "Bangles, Earrings..." })
+                        </div>
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Description)
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 3 })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.Price)
+                            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.DiscountPrice)
+                            @Html.TextBoxFor(m => m.DiscountPrice, new { @class = "form-control" })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(m => m.StockQuantity)
+                            @Html.TextBoxFor(m => m.StockQuantity, new { @class = "form-control" })
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>Product Image</label>
+                            <input type="file" name="ImageFile" class="form-control" />
+                        </div>
+
+                        <div class="col-md-12 text-end mt-3">
+                            <button type="submit" class="btn btn-dark px-4">
+                                Save Product
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
