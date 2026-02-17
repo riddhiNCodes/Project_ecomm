@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Project_ecomm.Models.Product>
+
+@{
+    ViewBag.Title = "Our Collection";
+}
+<style>
+    .card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s ease;
+    }
+
+    .btn-outline-dark:hover {
+        background-color: #b76e79;
+        border-color: #b76e79;
+        color: white;
+    }
+
+</style>
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4" style="color:#b76e79;">
+        Our Jewellery Collection
+    </h2>
+
+    <!-- Category Filter -->
+    <div class="text-center mb-4">
+        <a href="@Url.Action("Index","Products")" class="btn btn-outline-dark m-1">All</a>
+        <a href="@Url.Action("Index","Products", new { category = "Bangles" })" class="btn btn-outline-dark m-1">Bangles</a>
+        <a href="@Url.Action("Index","Products", new { category = "Earrings" })" class="btn btn-outline-dark m-1">Earrings</a>
+        <a href="@Url.Action("Index","Products", new { category = "Necklace" })" class="btn btn-outline-dark m-1">Necklace</a>
+    </div>
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 h-100 rounded-4">
+
+                    <img src="@Url.Content(item.ImageUrl)"
+                         class="card-img-top rounded-top-4"
+                         style="height:280px; object-fit:cover;" />
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title">@item.Name</h5>
+
+                        <p class="text-muted">@item.Category</p>
+
+                        <h6 style="color:#b76e79;">
+                            ₹ @item.Price
+                        </h6>
+
+                        <a href="@Url.Action("Details","Products", new { id = item.ProductId })"
+                           class="btn btn-dark mt-2 w-100">
+                            View Details
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

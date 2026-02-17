@@ -14,8 +14,15 @@ namespace Project_ecomm.Controllers
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
-            // GET: Add Product
-            public ActionResult AddProducts()
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
+
+        // GET: Add Product
+        public ActionResult AddProducts()
             {
                 return View();
             }
@@ -47,5 +54,66 @@ namespace Project_ecomm.Controllers
 
                 return View();
             }
+        public ActionResult ProductList()
+        {
+            var products = db.Products.ToList();
+            return View(products);
         }
+
+        //Get Edit Product
+        public ActionResult EditProduct(int id)
+        {
+            var product = db.Products.Find(id);
+
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(product);
+        }
+
+        // POST: Edit Product
+        [HttpPost]
+        public ActionResult EditProduct(Product model, HttpPostedFileBase ImageFile)
+        {
+            var product = db.Products.Find(model.ProductId);
+
+            if (product != null)
+            {
+                product.Name = model.Name;
+                product.Category = model.Category;
+                product.Price = model.Price;
+                product.Description = model.Description;
+
+                // Image Upload
+                if (ImageFile != null && ImageFile.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileName(ImageFile.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    ImageFile.SaveAs(path);
+
+                    product.ImageUrl = "~/Images/" + fileName;
+                }
+
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("ProductList");
+        }
+
+        public ActionResult DeleteProduct(int id)
+        {
+            var product = db.Products.Find(id);
+
+            if (product != null)
+            {
+                db.Products.Remove(product);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("ProductList");
+        }
+
     }
+}

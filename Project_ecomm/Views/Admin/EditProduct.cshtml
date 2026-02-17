@@ -1,0 +1,49 @@
+﻿@model Project_ecomm.Models.Product
+@{
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="mb-4">Edit Product</h2>
+
+    @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post,
+        new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.ProductId)
+
+        <div class="mb-3">
+            <label>Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label>Category</label>
+            @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label>Price</label>
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label>Current Image</label><br />
+            <img src="@Url.Content(Model.ImageUrl)" width="100" />
+        </div>
+
+        <div class="mb-3">
+            <label>Change Image</label>
+            <input type="file" name="ImageFile" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Update Product
+        </button>
+    }
+</div>
