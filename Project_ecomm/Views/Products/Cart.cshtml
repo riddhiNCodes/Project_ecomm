@@ -1,0 +1,170 @@
+﻿@model List<Project_ecomm.Models.CartItem>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+    decimal grandTotal = 0;
+}
+
+<style>
+    body {
+        background-color: #f9f5f0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .cart-title {
+        color: #7a1c28;
+        font-family: 'Tangerine', cursive,'Lavishly Yours';
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+
+    .cart-table {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+        .cart-table thead {
+            background: linear-gradient(135deg,#420f18, #7b1e2b);
+            color: #f5e6c8;
+            font-weight: 500;
+        }
+
+        .cart-table th, .cart-table td {
+            vertical-align: middle;
+        }
+
+    .qty-btn {
+        border: 1px solid #c6a75e;
+        color: #7a1c28;
+        background: #fff;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+
+        .qty-btn:hover {
+            background-color: #c6a75e;
+            color: white;
+        }
+
+    .remove-btn {
+        background-color: #a83246;
+        color: white;
+        border-radius: 20px;
+        padding: 5px 15px;
+        border: none;
+    }
+
+        .remove-btn:hover {
+            background-color: #7a1c28;
+        }
+
+    .grand-box {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .grand-total {
+        color: #7a1c28;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .checkout-btn {
+        background: linear-gradient(to right, #c6a75e, #e6c97a);
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 30px;
+        color: #7a1c28;
+        letter-spacing: 1px;
+    }
+
+        .checkout-btn:hover {
+            background: linear-gradient(to right, #b8974f, #d9b764);
+        }
+</style>
+
+<div class="container mt-5 mb-5">
+
+    <h2 class="cart-title mb-4">Your Cart</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="text-center p-5 bg-white rounded-4 shadow-sm">
+            <h4>Your cart is empty 🛍</h4>
+        </div>
+    }
+    else
+    {
+        <div class="cart-table p-3">
+
+            <table class="table text-center align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        decimal total = item.Product.Price * item.Quantity;
+                        grandTotal += total;
+
+                        <tr>
+                            <td class="fw-semibold">@item.Product.Name</td>
+                            <td>₹ @item.Product.Price</td>
+
+                            <td>
+                                <a href="@Url.Action("DecreaseQty","Products", new { id = item.Product.ProductId})"
+                                   class="qty-btn d-inline-flex align-items-center justify-content-center">-</a>
+
+                                <span class="mx-3 fw-semibold">@item.Quantity</span>
+
+                                <a href="@Url.Action("IncreaseQty","Products", new { id = item.Product.ProductId })"
+                                   class="qty-btn d-inline-flex align-items-center justify-content-center">+</a>
+                            </td>
+
+                            <td class="fw-semibold">₹ @total</td>
+
+                            <td>
+                                <a href="@Url.Action("Remove","Products", new { id = item.Product.ProductId })"
+                                   class="remove-btn">
+                                    Remove
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grand-box mt-4 text-end">
+            <div class="text-start">
+                <a href="@Url.Action("Index","Products")"
+                   class="checkout-btn">
+                    Continue Shopping...
+                </a>
+            </div>
+            <div class="grand-total mb-3">
+                Grand Total: ₹ @grandTotal
+            </div>
+
+            <a href="@Url.Action("Checkout","Products")"
+               class="checkout-btn">
+                Proceed to Checkout
+            </a>
+        </div>
+    }
+</div>
