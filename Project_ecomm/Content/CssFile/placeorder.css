@@ -1,0 +1,117 @@
+﻿/*.checkout-title {
+    color: #b76e79;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.luxury-card {
+    border-radius: 15px;
+    border: none;
+    background: #fff;
+}
+
+.place-order-btn {
+    background: linear-gradient(45deg, #b76e79, #d4a5a5);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+    .place-order-btn:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(183,110,121,0.3);
+    }
+.order-summary img {
+    border: 2px solid #b76e79;
+    box-shadow: 0 4px 10px rgba(183,110,121,0.2);
+}
+
+.order-summary h6 {
+    color: #7a1f2b;
+    font-weight: 600;
+}*/
+
+/* ===== Background ===== */
+body {
+    background: linear-gradient(to right, #fff8f2, #fbeaea);
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===== Logo ===== */
+.brand-logo {
+    height: 110px;
+}
+
+/* ===== Checkout Title ===== */
+.checkout-title {
+    font-size: 38px;
+    font-weight: 600;
+    color: #7a1f2b;
+    letter-spacing: 1px;
+}
+
+/* ===== Luxury Card ===== */
+.luxury-card {
+    border-radius: 18px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(122, 31, 43, 0.12);
+}
+
+    /* ===== Section Headings ===== */
+    .luxury-card h4 {
+        color: #7a1f2b;
+        font-weight: 600;
+        border-bottom: 2px solid #d4af37;
+        padding-bottom: 8px;
+    }
+
+/* ===== Input Fields ===== */
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #e6c9a8;
+}
+
+    .form-control:focus {
+        border-color: #d4af37;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+    }
+
+/* ===== Order Summary Items ===== */
+.order-item img {
+    border: 2px solid #d4af37;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ===== Total Styling ===== */
+.text-danger {
+    color: #7a1f2b !important;
+    font-size: 18px;
+}
+
+/* ===== Place Order Button ===== */
+.place-order-btn {
+    background: linear-gradient(45deg, #7a1f2b, #b76e79);
+    border: none;
+    border-radius: 30px;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s ease;
+}
+
+    .place-order-btn:hover {
+        background: linear-gradient(45deg, #5a1620, #a04e5a);
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(122, 31, 43, 0.3);
+    }
+@media (min-width: 768px) {
+    .col-md-5 .luxury-card {
+        position: sticky;
+        top: 30px;
+    }
+}

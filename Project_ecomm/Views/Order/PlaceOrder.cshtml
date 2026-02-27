@@ -1,0 +1,115 @@
+﻿@model Project_ecomm.Models.OrderViewModel
+
+
+@{
+    ViewBag.Title = "Place Order";
+    decimal grandTotal = Model.CartItems.Sum(x => x.Product.Price * x.Quantity);
+
+}
+<div class="container mt-5">
+    <div class="luxury-header text-center py-4">
+        <img src="~/Images/logo_asp.png" /><img src="~/Images/logo.png" alt="Shaadi Shringar" class="brand-logo" />
+    </div>
+    <h2 class="text-center mb-4 checkout-title">Checkout</h2>
+
+    <div class="row">
+
+        <!-- 🔹 Shipping Details -->
+        <div class="col-md-7">
+            <div class="card shadow-lg p-4 mb-4 luxury-card">
+                <h4 class="mb-3">Shipping Details</h4>
+
+                @using (Html.BeginForm("PlaceOrder", "Order", FormMethod.Post))
+                {
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.FullName)
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter full name" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.PhoneNumber)
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Enter phone number" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Address)
+                        @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 3, placeholder = "Enter full address" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.City)
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "City" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Pincode)
+                        @Html.TextBoxFor(m => m.Pincode, new { @class = "form-control", placeholder = "Pincode" })
+                    </div>
+
+                    <hr />
+
+                    <h5>Payment Method</h5>
+
+                    <div class="form-check">
+                        @Html.RadioButtonFor(m => m.PaymentMethod, "Cash on Delivery", new { @class = "form-check-input" })
+                        <label class="form-check-label">Cash on Delivery</label>
+                    </div>
+
+                    <div class="form-check">
+                        @Html.RadioButtonFor(m => m.PaymentMethod, "Online Payment", new { @class = "form-check-input" })
+                        <label class="form-check-label">Online Payment</label>
+                    </div>
+
+                    <button type="submit" class="btn place-order-btn mt-4 w-100">
+                        Place Order
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- 🔹 Order Summary -->
+        <div class="col-md-5">
+            <div class="card shadow-lg p-4 luxury-card">
+                <h4 class="mb-3">Order Summary</h4>
+
+                @*@foreach (var item in Model.CartItems)
+        {
+            <div class="d-flex justify-content-between mb-2">
+                <span>@item.Product.Name (x @item.Quantity)</span>
+                <span>₹ @(item.Product.Price * item.Quantity)</span>
+
+            </div>
+        }*@
+              
+                @foreach (var item in Model.CartItems)
+                {
+                    <div class="d-flex align-items-center mb-3 p-3 border-bottom order-item">
+
+                        <img src="@Url.Content(item.Product.ImageUrl)"
+                             alt="@item.Product.Name"
+                             style="width:80px; height:80px; object-fit:cover; border-radius:12px; margin-right:15px;" />
+
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1" style="color:#7a1f2b; font-weight:600;">
+                                @item.Product.Name
+                            </h6>
+                            <small class="text-muted">Quantity: @item.Quantity</small>
+                        </div>
+
+                        <div style="font-weight:600; color:#d4af37;">
+                            ₹ @(item.Product.Price * item.Quantity)
+                        </div>
+
+                    </div>
+                }
+                <hr />
+
+                <div class="d-flex justify-content-between">
+                    <strong>Total</strong>
+                    <strong class="text-danger">₹ @grandTotal</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
