@@ -78,94 +78,11 @@
         </div>
 
         <div class="order-id">
-            Order ID: <strong>#@ViewBag.OrderId</strong>
+            @*Order ID: <strong>#@ViewBag.OrderId</strong>*@
+            Order ID: <strong>@Model.Id</strong>
         </div>
-
-        <a href="@Url.Action("Index", "Home")" class="btn-luxury">
-            Continue Shopping
-        </a>
-    </div>
-</div>@{
-    ViewBag.Title = "Order Success";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<style>
-    .success-wrapper {
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #fdf7f8, #f3e8eb);
-    }
-
-    .success-card {
-        background: #ffffff;
-        padding: 50px;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 15px 40px rgba(183, 110, 121, 0.2);
-        max-width: 600px;
-        width: 100%;
-        border: 1px solid #f1d4d9;
-    }
-
-    .success-icon {
-        font-size: 70px;
-        color: #b76e79;
-        margin-bottom: 20px;
-    }
-
-    .success-title {
-        font-size: 28px;
-        font-weight: 600;
-        color: #b76e79;
-        margin-bottom: 15px;
-    }
-
-    .success-text {
-        color: #666;
-        margin-bottom: 25px;
-    }
-
-    .order-id {
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 30px;
-    }
-
-    .btn-luxury {
-        background-color: #b76e79;
-        color: white;
-        padding: 12px 30px;
-        border-radius: 30px;
-        text-decoration: none;
-        transition: 0.3s ease;
-    }
-
-        .btn-luxury:hover {
-            background-color: #9e5c67;
-            color: #fff;
-        }
-</style>
-
-<div class="success-wrapper">
-    <div class="success-card">
         <div class="success-icon">
-            ✔
-        </div>
-
-        <div class="success-title">
-            Thank You for Your Order!
-        </div>
-
-        <div class="success-text">
-            Your order has been placed successfully.
-            We are preparing it with love and care 💖
-        </div>
-
-        <div class="order-id">
-            Order ID: <strong>#@ViewBag.OrderId</strong>
+            <p>Total Amount: ₹ @Model.TotalAmount</p>
         </div>
 
         <a href="@Url.Action("Index", "Home")" class="btn-luxury">
@@ -173,3 +90,4 @@
         </a>
     </div>
 </div>
+

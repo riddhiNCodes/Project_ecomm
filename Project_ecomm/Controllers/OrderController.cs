@@ -7,11 +7,24 @@ using Project_ecomm.Models;
 
 namespace Project_ecomm.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
+       private ApplicationDbContext db = new ApplicationDbContext();
+        // GET: Order
         public ActionResult PlaceOrder()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var cart = Session["Cart"] as List<CartItem>;
+
+            if (cart == null || !cart.Any())
+            {
+                return RedirectToAction("Index", "Cart");
+            }
 
             OrderViewModel model = new OrderViewModel
             {
@@ -21,39 +34,74 @@ namespace Project_ecomm.Controllers
             return View(model);
         }
 
+
         [HttpPost]
-      
         public ActionResult PlaceOrder(OrderViewModel model)
         {
-            if (ModelState.IsValid)
+            var cart = Session["Cart"] as List<CartItem>;
+
+            // Check if cart is empty
+            if (cart == null || !cart.Any())
             {
-                // 1️⃣ Create order object
-                Order order = new Order();
-                order.CustomerName = model.CustomerName;
-                order.Address = model.Address;
-                order.TotalAmount = model.TotalAmount;
-                order.OrderDate = DateTime.Now;
-
-                // 2️⃣ Save in database
-                db.Orders.Add(order);
-                db.SaveChanges();   // VERY IMPORTANT (this generates Order ID)
-
-                // 3️⃣ Clear cart
-                Session["Cart"] = null;
-
-                // 4️⃣ Redirect and pass order ID
-                return RedirectToAction("OrderSuccess", new { id = order.Id });
+                return RedirectToAction("Index", "Cart");
             }
 
-            return View(model);
+            // Check model validation
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                // Create Order
+                Order order = new Order
+                {
+                    CustomerName = model.CustomerName,
+                    Email = model.Email,
+                    Phone = model.PhoneNumber,
+                    Address = model.Address,
+                    OrderDate = DateTime.Now,
+                    TotalAmount = cart.Sum(x => x.Product.Price * x.Quantity)
+                };
+
+                db.Orders.Add(order);
+                db.SaveChanges(); // Generates Order Id
+
+                // Create OrderDetails
+                foreach (var item in cart)
+                {
+                    OrderDetail detail = new OrderDetail
+                    {
+                        OrderId = order.Id,
+                        ProductId = item.Product.ProductId,
+                        Quantity = item.Quantity,
+                        Price = item.Product.Price
+                    };
+
+                    db.OrderDetails.Add(detail);
+                }
+
+                db.SaveChanges();
+
+                // Clear cart
+                Session["Cart"] = null;
+
+                return RedirectToAction("OrderSuccessPage", new { id = order.Id });
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Something went wrong while placing order.");
+                return View(model);
+            }
         }
-        
+
 
         public ActionResult OrderSuccessPage(int id)
         {
-            ViewBag.OrderId = id;
-            return View();
+            var order = db.Orders.FirstOrDefault(o => o.Id == id);
 
+            return View(order);
         }
     }
 }

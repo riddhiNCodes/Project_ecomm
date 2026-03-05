@@ -190,11 +190,17 @@
     <Compile Include="Migrations\202602091429589_CreateProductTable.Designer.cs">
       <DependentUpon>202602091429589_CreateProductTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202603041452224_AddOrderTables.cs" />
+    <Compile Include="Migrations\202603041452224_AddOrderTables.Designer.cs">
+      <DependentUpon>202603041452224_AddOrderTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -365,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202602091429589_CreateProductTable.resx">
       <DependentUpon>202602091429589_CreateProductTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202603041452224_AddOrderTables.resx">
+      <DependentUpon>202603041452224_AddOrderTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -41,6 +41,11 @@ namespace Project_ecomm.Controllers
 
         public ActionResult AddToCart(int id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var product = db.Products.Find(id);
 
             if (product == null)
