@@ -32,7 +32,6 @@
 
 
 
-
     @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
 
@@ -158,16 +157,20 @@
                     <div class="col-auto">
                         <button class="cart-btn">
                             <i class="bi bi-bag-heart"></i>
-                            Cart
+
+                            <a class="nav-link" href="@Url.Action("Cart","Products")">
+                                Cart ( @count )
+                            </a>
                         </button>
+
                     </div>
                     @*<ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Cart","Products")">
-                                Cart (@count)
-                            </a>
-                        </li>
-                    </ul>*@
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Cart","Products")">
+                                    Cart (@count)
+                                </a>
+                            </li>
+                        </ul>*@
 
 
 
@@ -197,5 +200,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+

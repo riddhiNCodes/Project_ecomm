@@ -2,8 +2,8 @@
 
 @{
     ViewBag.Title = "Product Details";
-}
 
+}
 <style>
 
     body {
@@ -127,6 +127,11 @@
         box-shadow: 0 0 6px rgba(212,175,55,0.6);
     }
 
+    .collection-subtitle {
+        color: #888;
+        font-size: 15px;
+    }
+
     .section-title-ear {
         font-size: 30px;
         letter-spacing: 1px;
@@ -135,7 +140,7 @@
         font-family: 'Sumana', Pacifaco;
     }
 
-    
+
 
     .breadcrumb-box {
         background: none;
@@ -156,6 +161,26 @@
 
     .current-product {
         color: #999;
+    }
+
+    .details-title {
+        font-size: 32px;
+        font-weight: 600;
+        color: #7a1f2a;
+    }
+
+    .details-subtitle {
+        color: #777;
+        font-size: 15px;
+    }
+
+    .royal-divider {
+        width: 140px;
+        height: 2px; /* THIN */
+        margin: 10px auto 30px; /* balanced spacing */
+        background: linear-gradient( 90deg, transparent, #d4af37, transparent );
+        border-radius: 2px;
+        box-shadow: 0 0 6px rgba(212,175,55,0.6);
     }
 </style>
 
@@ -185,6 +210,15 @@
 
     </nav>
 
+    <div class="text-center mb-5">
+
+        <h2 class="details-title">Jewellery Details</h2>
+
+        <p class="details-subtitle">
+            Discover the artistry and elegance crafted for your special moments.
+        </p>
+        <div class="royal-divider"></div>
+    </div>
 
 
     <div class="product-box">
@@ -216,6 +250,8 @@
                         <div class="price">
                             ₹ @Model.Price
                         </div>
+                        <p class="collection-subtitle">Inclusive of Taxes</p>
+
 
 
                         <!-- DESCRIPTION -->

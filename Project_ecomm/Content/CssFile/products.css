@@ -8,6 +8,12 @@
     color: #7a1f2b;
     font-weight: 600;
     margin-bottom: 25px;
+    font-family:'Sumana',Poppins;
+
+}
+.collection-subtitle {
+    color: #888;
+    font-size: 15px;
 }
 
 /* Category Buttons */
@@ -27,19 +33,23 @@
     }
 .luxury-card {
     background: white;
-    border-radius: 20px;
+/*    border-radius: 20px;*/
     overflow: hidden;
     position: relative;
     transition: .5s;
     border: 1px solid #f1e3d3;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.luxury-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
-}
+    .luxury-card:hover {
+/*        transform: translateY(-10px);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.15);*/
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
 
 /* IMAGE WRAPPER */
 
@@ -89,11 +99,11 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background: #7a1f2b;
+    background: #8b1e2d;
     color: white;
-    padding: 5px 14px;
-    font-size: 12px;
+    padding: 5px 12px;
     border-radius: 20px;
+    font-size: 12px;
 }
 
 /* WISHLIST */
@@ -138,12 +148,13 @@
 /* PRICE */
 
 .price {
-    font-size: 20px;
-    font-weight: 700;
     margin-top: 6px;
     background: linear-gradient(90deg,#b76e79,#7a1f2b);
-    -webkit-background-clip:text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: #b76e79;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 /* VIEW DETAILS */
@@ -151,14 +162,50 @@
 .view-btn {
     margin-top: 15px;
     border: 1px solid #7a1f2b;
-    color: #7a1f2b;
-    border-radius: 30px;
-    padding: 8px 20px;
+/*    color: #7a1f2b;*/
+/*    border-radius: 30px;*/
+/*    padding: 8px 20px;*/
     transition: .3s;
+
+    background:#7a1f2a;
+    color:white;
+    padding:10px 25px;
+    border-radius:25px;
+    font-weight:500;
 }
 
     .view-btn:hover {
-        background: #7a1f2b;
+       
+        background: #5c1620;
         color: white;
     }
+.royal-divider {
+    width: 140px;
+    height: 2px; /* THIN */
+    margin: 10px auto 30px; /* balanced spacing */
+    background: linear-gradient( 90deg, transparent, #d4af37, transparent );
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(212,175,55,0.6);
+}
 
+.breadcrumb-box {
+    background: transparent;
+    padding: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: #7a1f2b;
+    font-weight: 500;
+}
+
+.breadcrumb-box span {
+    margin: 0 6px;
+}
+
+.current-product {
+    color: #999;
+}

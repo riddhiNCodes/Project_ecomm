@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Project_ecomm.Models.Product>
+
+@{
+    ViewBag.Title = "Shop By State";
+}
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">
+        Jewellery from @ViewBag.StateName
+    </h2>
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm border-0">
+
+                    <img src="@item.ImageUrl" class="card-img-top" style="height:250px;object-fit:cover;" />
+
+                    <div class="card-body text-center">
+
+                        <h6>@item.Name</h6>
+
+                        <p class="text-muted">₹ @item.Price</p>
+
+                        <a href="@Url.Action("Details","Product", new { id = item.ProductId })"
+                           class="btn btn-outline-dark btn-sm">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>

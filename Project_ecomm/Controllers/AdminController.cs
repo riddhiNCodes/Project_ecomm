@@ -9,8 +9,9 @@ using Project_ecomm.Models;
 namespace Project_ecomm.Controllers
 {
 
-        [Authorize] 
-        public class AdminController : Controller
+    [Authorize(Roles = "Admin")]
+
+    public class AdminController : Controller
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
@@ -83,6 +84,7 @@ namespace Project_ecomm.Controllers
             {
                 product.Name = model.Name;
                 product.Category = model.Category;
+                product.State = model.State;
                 product.Price = model.Price;
                 product.Description = model.Description;
 

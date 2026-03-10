@@ -33,48 +33,48 @@
                 {
                     @Html.AntiForgeryToken()
 
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            @Html.LabelFor(m => m.Name)
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                        </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                </div>
 
-                        <div class="col-md-6">
-                            @Html.LabelFor(m => m.Category)
-                            @Html.TextBoxFor(m => m.Category, new { @class = "form-control", placeholder = "Bangles, Earrings..." })
-                        </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Category)
+                    @Html.TextBoxFor(m => m.Category, new { @class = "form-control", placeholder = "Bangles, Earrings..." })
+                </div>
+                
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 3 })
+                </div>
 
-                        <div class="col-md-12">
-                            @Html.LabelFor(m => m.Description)
-                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 3 })
-                        </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Price)
+                    @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                </div>
 
-                        <div class="col-md-4">
-                            @Html.LabelFor(m => m.Price)
-                            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
-                        </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.State)
+                    @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+                </div>
 
-                        <div class="col-md-4">
-                            @Html.LabelFor(m => m.DiscountPrice)
-                            @Html.TextBoxFor(m => m.DiscountPrice, new { @class = "form-control" })
-                        </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.StockQuantity)
+                    @Html.TextBoxFor(m => m.StockQuantity, new { @class = "form-control" })
+                </div>
 
-                        <div class="col-md-4">
-                            @Html.LabelFor(m => m.StockQuantity)
-                            @Html.TextBoxFor(m => m.StockQuantity, new { @class = "form-control" })
-                        </div>
+                <div class="col-md-12">
+                    <label>Product Image</label>
+                    <input type="file" name="ImageFile" class="form-control" />
+                </div>
 
-                        <div class="col-md-12">
-                            <label>Product Image</label>
-                            <input type="file" name="ImageFile" class="form-control" />
-                        </div>
-
-                        <div class="col-md-12 text-end mt-3">
-                            <button type="submit" class="btn btn-dark px-4">
-                                Save Product
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-md-12 text-end mt-3">
+                    <button type="submit" class="btn btn-dark px-4">
+                        Save Product
+                    </button>
+                </div>
+            </div>
                 }
             </div>
         </div>

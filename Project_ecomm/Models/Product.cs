@@ -22,7 +22,9 @@ namespace Project_ecomm.Models
         [Required]
         public decimal Price { get; set; }
 
-        public decimal? DiscountPrice { get; set; }
+        [Required]
+        [StringLength(150)]
+        public string State { get; set; }
 
         [StringLength(250)]
         public string ImageUrl { get; set; }
@@ -36,5 +38,7 @@ namespace Project_ecomm.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         public bool IsActive { get; set; } = true;
+
+        //public string State { get; set; }
     }
 }
