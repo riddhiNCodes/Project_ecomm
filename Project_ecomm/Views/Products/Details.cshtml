@@ -5,72 +5,333 @@
 }
 
 <style>
-    .price-text {
-        color: #b76e79;
-        font-size: 24px;
-        font-weight: 600;
+
+    body {
+        background: #faf7f7;
     }
 
-    .btn-luxury {
-        background-color: #b76e79;
+    /* MAIN CARD */
+
+    .product-box {
+        background: white;
+        border-radius: 18px;
+        padding: 35px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* IMAGE */
+
+    .product-img {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    /* TITLE */
+
+    .product-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: #7a1f2b;
+    }
+
+    /* CATEGORY */
+
+    .category {
+        color: #888;
+        margin-bottom: 10px;
+        font-family: 'Sumana', Pacifaco;
+    }
+
+    /* PRICE */
+
+    .price {
+        font-size: 26px;
+        font-weight: 700;
+        color: #b76e79;
+        font-family: 'Sumana', Pacifaco;
+    }
+
+    /* DESCRIPTION */
+
+    .desc-title {
+        font-weight: 600;
+        margin-top: 25px;
+        margin-bottom: 5px;
+        font-family: 'Sumana', Pacifaco;
+    }
+
+    .desc-text {
+        color: #555;
+        line-height: 1.7;
+    }
+
+    /* BUTTON */
+
+    .btn-cart {
+        background: #7a1f2b;
         color: white;
         border: none;
+        border-radius: 30px;
+        padding: 10px 28px;
+        margin-top: 20px;
+        font-family: 'Sumana', Pacifaco;
     }
 
-        .btn-luxury:hover {
-            background-color: #9c4f5c;
+        .btn-cart:hover {
+            background: #b76e79;
             color: white;
         }
+
+    .btn-login {
+        background: #f4b400;
+        border: none;
+        border-radius: 30px;
+        padding: 10px 28px;
+        margin-top: 20px;
+        font-family: 'Sumana', Pacifaco;
+    }
+
+        .btn-login:hover {
+            background-color: #efbf53;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+    .why-us {
+        background: #420f18;
+        color: white;
+        border-radius: 15px;
+        font-family: 'Sumana', Pacifaco;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        transition: .3s;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .extra {
+        border-radius: 18px;
+        padding: 35px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        font-family: 'Sumana', Pacifaco;
+    }
+
+    .royal-divider {
+        width: 140px;
+        height: 2px; /* THIN */
+        margin: 10px auto 30px; /* balanced spacing */
+        background: linear-gradient( 90deg, transparent, #d4af37, transparent );
+        border-radius: 2px;
+        box-shadow: 0 0 6px rgba(212,175,55,0.6);
+    }
+
+    .section-title-ear {
+        font-size: 30px;
+        letter-spacing: 1px;
+        color: #6B4E16;
+        position: relative;
+        font-family: 'Sumana', Pacifaco;
+    }
+
+    
+
+    .breadcrumb-box {
+        background: none;
+        padding: 0;
+        font-size: 14px;
+        color: #777;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #7a1f2b;
+        font-weight: 500;
+    }
+
+    .breadcrumb-box span {
+        margin: 0 6px;
+    }
+
+    .current-product {
+        color: #999;
+    }
 </style>
+
 
 <div class="container mt-5">
 
-    <div class="row shadow-lg p-4 rounded-4 bg-white">
 
-        <!-- Image -->
-        <div class="col-md-6 text-center">
-            <img src="@Url.Content(Model.ImageUrl)"
-                 class="img-fluid rounded-4"
-                 style="max-height:450px; object-fit:cover;" />
+    <nav class="breadcrumb-box m-2 p-2">
+
+        <a href="@Url.Action("Index","Home")">Home</a>
+
+        <span>›</span>
+
+        <a href="@Url.Action("Index","Products")">Bridal Collection</a>
+
+        <span>›</span>
+
+        <a href="@Url.Action("Index","Products", new { category = Model.Category })">
+            @Model.Category
+        </a>
+
+        <span>›</span>
+
+        <span class="current-product">
+            @Model.Name
+        </span>
+
+    </nav>
+
+
+
+    <div class="product-box">
+
+        <div class="row align-items-center">
+
+            <!-- IMAGE -->
+
+            <div class="col-md-5 text-center">
+
+                <img src="@Url.Content(Model.ImageUrl)"
+                     class="product-img" />
+
+            </div>
+
+            <div class="col-md-7">
+                <!-- DETAILS -->
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <h2 class="product-title">
+                            @Model.Name
+                        </h2>
+
+                        <p class="category">
+                            @Model.Category
+                        </p>
+
+                        <div class="price">
+                            ₹ @Model.Price
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="desc-title">
+                            Product Description
+                        </div>
+
+                        <p class="desc-text">
+                            @Model.Description
+                        </p>
+
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="@Url.Action("AddToCart","Products",
+new { id = Model.ProductId })"
+                               class="btn btn-cart">
+
+                                Add To Cart
+
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login","Account")"
+                               class="btn btn-login">
+
+                                Login to Buy
+
+                            </a>
+                        }
+
+                    </div>
+                    <!-- DELIVERY INFO -->
+                    <div class="col-md-4 why-us p-2 text-center">
+
+                        <h5 class="m-2" style="color: #efbf53;">Delivery & Returns</h5>
+
+                        <ul class="list-unstyled mt-3" style="line-height:2;">
+                            <li>🚚 Free delivery across India</li>
+                            <li>🔄 7 Day Easy Return</li>
+                            <li>💎 Quality Assured Jewellery</li>
+                            <li>🔒 Secure Checkout</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Details -->
-        <div class="col-md-6">
-
-            <h2>@Model.Name</h2>
-
-            <p class="text-muted">@Model.Category</p>
-
-            <p class="price-text">
-                ₹ @Model.Price
-            </p>
-
-            <p class="mt-3">
-                @Model.Description
-            </p>
-
-            @*<a href="@Url.Action("AddToCart","Products", new { id = Model.ProductId })"
-           class="btn btn-luxury mt-4 w-50">
-            Add to Cart
-        </a>*@
-
-            @if (User.Identity.IsAuthenticated)
-
-            {
-                <a href="@Url.Action("AddToCart","Products", new { id = Model.ProductId })"
-                   class="btn btn-luxury mt-4 w-50">
-                    Add To Cart
-                </a>
-            }
-            else
-            {
-                <a href="@Url.Action("Login","Account")"
-                   class="btn btn-warning mt-4 w-50">
-                    Login to Buy
-                </a>
-            }
-
-        </div>
     </div>
+</div>
+
+
+
+@{
+    var related = ViewBag.RelatedProducts as List<Project_ecomm.Models.Product>;
+}
+<div class="container extra mt-5 pt-2">
+
+    @if (related != null && related.Count > 0)
+    {
+
+        <div class="container mt-5">
+
+            <h3 class=" section-title-ear text-center mb-4">
+                You May Also Like
+            </h3>
+            <div class="royal-divider"></div>
+
+            <div class="row">
+
+                @foreach (var item in related)
+                {
+
+                    <div class="col-md-4 mb-4">
+
+                        <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                            <img src="@Url.Content(item.ImageUrl)"
+                                 class="card-img-top rounded-top-4"
+                                 style="height:220px; object-fit:cover;" />
+
+                            <div class="card-body text-center">
+
+                                <h6>@item.Name</h6>
+
+                                <p class="text-muted">@item.Category</p>
+
+                                <p style="color:#b76e79; font-weight:600;">
+                                    ₹ @item.Price
+                                </p>
+
+                                <a href="@Url.Action("Details","Products",
+new { id=item.ProductId })"
+                                   class="btn btn-sm btn-dark">
+
+                                    View
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                }
+
+            </div>
+
+        </div>
+
+    }
 </div>
 

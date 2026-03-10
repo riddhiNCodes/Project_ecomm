@@ -229,6 +229,7 @@
     <Content Include="Content\CssFile\login.css" />
     <Content Include="Content\CssFile\nav.css" />
     <Content Include="Content\CssFile\placeorder.css" />
+    <Content Include="Content\CssFile\products.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

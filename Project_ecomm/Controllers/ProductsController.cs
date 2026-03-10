@@ -28,16 +28,29 @@ namespace Project_ecomm.Controllers
         }
 
 
+        //public ActionResult Details(int id)
+        //{
+        //    var product = db.Products.Find(id);
+        //    if (product == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(product);
+        //}
         public ActionResult Details(int id)
         {
             var product = db.Products.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
+
+            // Related products from same category
+            var relatedProducts = db.Products
+                .Where(p => p.Category == product.Category && p.ProductId != id)
+                .Take(3)
+                .ToList();
+
+            ViewBag.RelatedProducts = relatedProducts;
+
             return View(product);
         }
-
 
         public ActionResult AddToCart(int id)
         {
