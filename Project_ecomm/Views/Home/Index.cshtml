@@ -94,8 +94,12 @@
 
 
     <div class="container-fluid mt-5">
-        
-        @if (Request.IsAuthenticated)
+        <div class="header">
+            <h1><i>Welcome</i> <span>to Shaadi Shringar ..</span></h1>
+        </div>
+
+
+        @*@if (Request.IsAuthenticated)
         {
             <div class="header">
                 <h1><i>Welcome</i>,<span> @User.Identity.Name</span></h1>
@@ -107,7 +111,7 @@
             <div class="header">
                 <h1><i>Welcome</i> <span>to Shaadi Shringar ..</span></h1>
             </div>
-        }
+        }*@
 
         @*<div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
