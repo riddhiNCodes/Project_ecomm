@@ -53,10 +53,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <p style="color:white;">
-                    IsAuthenticated: @User.Identity.IsAuthenticated <br />
-                    Name: @User.Identity.Name
-                </p>
 
 
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -83,9 +79,13 @@
                     <ul class="navbar-nav ms-auto align-items-center">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item me-2 text-white">
+                            <span class="nav-link fw-semibold text-warning ">
+                                <i class="bi bi-person-circle"></i> Hello, @User.Identity.Name
+                            </span>
+
+                            @*<li class="nav-item me-2 text-warning fw-bold ">
                                 Hello, <strong>@User.Identity.GetUserName()</strong>
-                            </li>
+                            </li>*@
 
                             <li class="nav-item">
                                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
@@ -98,7 +98,7 @@
                             </li>
 
                             <li>
-                                <a href="@Url.Action("MyOrders","Order")">My Orders</a>
+                                <a href="@Url.Action("MyOrders","Order")" class="text-light">My Profile</a>
                             </li>
                         }
                         else
@@ -149,7 +149,7 @@
                             </button>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Maharashtra</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("State","Products", new { state="Maharashtra" })">Maharashtra</a></li>
                                 <li><a class="dropdown-item" href="#">Rajasthan</a></li>
                                 <li><a class="dropdown-item" href="#">Gujarat</a></li>
                                 <li><hr class="dropdown-divider"></li>

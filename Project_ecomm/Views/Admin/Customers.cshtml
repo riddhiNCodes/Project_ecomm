@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Project_ecomm.Models.ApplicationUser>
+
+@{
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid p-4">
+
+    <h3 class="mb-4">Manage Customers</h3>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var user in Model)
+            {
+                <tr>
+
+                    <td>@user.UserName</td>
+
+                    <td>@user.Email</td>
+
+                    <td>@user.PhoneNumber</td>
+
+                    <td>
+
+                        @*<a href="@Url.Action("CustomerOrders","Admin", new { id = user.Id })"
+                           class="btn btn-sm btn-primary">
+                            Orders
+                        </a>*@
+
+                        <a href="@Url.Action("DeleteCustomer","Admin", new { id = user.Id })"
+                           class="btn btn-sm btn-danger">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

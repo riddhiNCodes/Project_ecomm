@@ -1,0 +1,24 @@
+﻿@model Project_ecomm.Models.ApplicationUser
+
+<div class="container mt-5">
+
+    <h2>Edit Profile</h2>
+
+    @using (Html.BeginForm())
+    {
+
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="mb-3">
+            <label>Full Name</label>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+
+
+        
+
+        <button class="btn btn-success">Update Profile</button>
+
+    }
+
+</div>

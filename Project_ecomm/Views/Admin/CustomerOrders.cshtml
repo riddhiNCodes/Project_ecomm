@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Project_ecomm.Models.Order>
+
+@{
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid p-4">
+
+    <h3 class="mb-4">Customer Orders</h3>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var order in Model)
+            {
+                <tr>
+
+                    <td>#@order.Id</td>
+
+                    <td>@order.CustomerName</td>
+
+                    <td>@order.OrderDate.ToShortDateString()</td>
+
+                    <td>₹@order.TotalAmount</td>
+
+                    <td>
+                        @if (order.Status == "Delivered")
+                        {
+                            <span class="badge bg-success">Delivered</span>
+                        }
+                        else if (order.Status == "Pending")
+                        {
+                            <span class="badge bg-warning">Pending</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@order.Status</span>
+                        }
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action("OrderDetails","Admin",new { id = order.Id })"
+                           class="btn btn-sm btn-dark">
+                            View
+                        </a>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

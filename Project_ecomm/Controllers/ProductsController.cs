@@ -153,17 +153,14 @@ namespace Project_ecomm.Controllers
 
             return View(cart);
         }
+        public ActionResult State(string state)
+        {
+            var products = db.Products
+                             .Where(p => p.State == state)
+                             .ToList();
 
-        //public ActionResult State(string state)
-        //{
-        //    var products = db.Products
-        //                     .Where(p => p.State == state)
-        //                     .ToList();
-
-        //    ViewBag.StateName = state;
-
-        //    return View(products);
-        //}
-
+            return View(products);
+        }
     }
+    
 }

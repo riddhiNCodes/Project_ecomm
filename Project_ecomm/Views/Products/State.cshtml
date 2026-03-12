@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Project_ecomm.Models.Product>
+﻿@model List<Project_ecomm.Models.Product>
 
 @{
     ViewBag.Title = "Shop By State";
@@ -9,6 +9,8 @@
     <h2 class="text-center mb-4">
         Jewellery from @ViewBag.StateName
     </h2>
+    <h2>Products from @Request.QueryString["state"]</h2>
+
     <div class="row">
 
         @foreach (var item in Model)

@@ -45,6 +45,15 @@
 
                         @Html.ValidationSummary("", new { @class = "text-danger text-center mb-3" })
 
+
+                        <div class="form-group mb-3">
+                            @Html.TextBoxFor(m => m.UserName, new
+                            {
+                                @class = "form-control gold-input",
+                                placeholder = "UserName"
+                            })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
                         <!-- EMAIL -->
                         <div class="form-group mb-3">
                             @Html.TextBoxFor(m => m.Email, new

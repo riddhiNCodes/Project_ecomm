@@ -202,8 +202,25 @@
     <Compile Include="Migrations\202603121038331_addorderstatus.Designer.cs">
       <DependentUpon>202603121038331_addorderstatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202603121327088_admindasboard.cs" />
+    <Compile Include="Migrations\202603121327088_admindasboard.Designer.cs">
+      <DependentUpon>202603121327088_admindasboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202603121344237_addeduserid.cs" />
+    <Compile Include="Migrations\202603121344237_addeduserid.Designer.cs">
+      <DependentUpon>202603121344237_addeduserid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202603121408348_addedusername.cs" />
+    <Compile Include="Migrations\202603121408348_addedusername.Designer.cs">
+      <DependentUpon>202603121408348_addedusername.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202603121446327_new.cs" />
+    <Compile Include="Migrations\202603121446327_new.Designer.cs">
+      <DependentUpon>202603121446327_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminDashboardViewModel.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -343,6 +360,9 @@
     <Content Include="Views\Order\MyOrders.cshtml" />
     <Content Include="Views\Admin\Orders.cshtml" />
     <Content Include="Views\Admin\OrderDetails.cshtml" />
+    <Content Include="Views\Admin\Customers.cshtml" />
+    <Content Include="Views\Admin\CustomerOrders.cshtml" />
+    <Content Include="Views\Account\editprofile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -394,6 +414,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202603121038331_addorderstatus.resx">
       <DependentUpon>202603121038331_addorderstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202603121327088_admindasboard.resx">
+      <DependentUpon>202603121327088_admindasboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202603121344237_addeduserid.resx">
+      <DependentUpon>202603121344237_addeduserid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202603121408348_addedusername.resx">
+      <DependentUpon>202603121408348_addedusername.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202603121446327_new.resx">
+      <DependentUpon>202603121446327_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

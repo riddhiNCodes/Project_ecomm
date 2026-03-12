@@ -1,10 +1,32 @@
 ﻿@model List<Project_ecomm.Models.Order>
 
+
 @{
-    ViewBag.Title = "My Orders";
+    ViewBag.Title = "My Profile";
 }
 
 <div class="container mt-5">
+
+    <h2 class="mb-4">My Profile</h2>
+
+    @if (Model.Any())
+    {
+        var user = Model.First();
+
+        <div class="card mb-4 p-3">
+            <h5>User Details</h5>
+
+            <p><strong>Name:</strong> @user.CustomerName</p>
+            <p><strong>Email:</strong> @user.Email</p>
+            <p><strong>Phone:</strong> @user.Phone</p>
+            <a href="@Url.Action("EditProfile","Account")"
+               class="btn btn-outline-warning">
+                Edit Profile
+            </a>
+        </div>
+    }
+
+
 
     <h2 class="mb-4">My Orders</h2>
 

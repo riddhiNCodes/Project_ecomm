@@ -15,11 +15,30 @@ namespace Project_ecomm.Controllers
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
         public ActionResult Index()
         {
-            return View();
-        }
+            var dashboard = new AdminDashboardViewModel();
 
+            dashboard.TotalProducts = db.Products.Count();
+
+            dashboard.TotalOrders = db.Orders.Count();
+
+            dashboard.TotalCustomers = db.Users.Count();
+
+            dashboard.TotalRevenue = db.Orders.Sum(o => (decimal?)o.TotalAmount) ?? 0;
+
+            dashboard.RecentOrders = db.Orders
+                                       .OrderByDescending(o => o.OrderDate)
+                                       .Take(5)
+                                       .ToList();
+
+            return View(dashboard);
+        }
 
 
         // GET: Add Product
@@ -147,6 +166,36 @@ namespace Project_ecomm.Controllers
 
             return View(order);
         }
+
+
+        public ActionResult Customers()
+    {
+        var customers = db.Users.ToList();
+
+        return View(customers);
+    }
+
+
+        public ActionResult CustomerOrders(string id)
+        {
+            var orders = db.Orders
+                           .Where(o => o.UserId == id)
+                           .ToList();
+
+            return View(orders);
+        }
+
+        public ActionResult DeleteCustomer(string id)
+        {
+            var user = db.Users.Find(id);
+
+            db.Users.Remove(user);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Customers");
+        }
+
     }
 
 

@@ -34,15 +34,26 @@
                 </a>
 
                 <a href="#"><i class="bi bi-tags"></i> Categories</a>
-              
+
                 <a href="@Url.Action("Orders","Admin")">
-                    <i class="bi bi-cart"></i> 
+                    <i class="bi bi-cart"></i>
                     Manage Orders
                 </a>
-                <a href="#"><i class="bi bi-people"></i> Customers</a>
-                <a href="#"><i class="bi bi-graph-up"></i> Reports</a>
-                <a href="#"><i class="bi bi-gear"></i> Settings</a>
-                <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+
+
+                <a href="@Url.Action("Customers","Admin")">
+                    <i class="bi bi-people"></i> Customers
+                </a>
+
+
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                }
             </div>
 
             <!-- Main Content -->

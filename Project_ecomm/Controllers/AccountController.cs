@@ -160,7 +160,11 @@ namespace Project_ecomm.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -184,6 +188,33 @@ namespace Project_ecomm.Controllers
 
             return View(model);
         }
+
+
+
+        //public ActionResult EditProfile()
+        //{
+        //    ApplicationDbContext db = new ApplicationDbContext();
+        //    var userId = User.Identity.GetUserId();
+
+        //    var user = db.Users.Find(userId);
+
+        //    return View(user);
+        //}
+        //[HttpPost]
+        //public ActionResult EditProfile(ApplicationUser model)
+        //{
+        //    ApplicationDbContext db = new ApplicationDbContext();
+        //    var user = db.Users.Find(model.Id);
+
+        //    user.UserName= model.UserName;
+           
+            
+
+        //    db.SaveChanges();
+
+        //    return RedirectToAction("");
+        //}
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -491,6 +522,12 @@ namespace Project_ecomm.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+
+
+
+
+
+
         }
         #endregion
     }

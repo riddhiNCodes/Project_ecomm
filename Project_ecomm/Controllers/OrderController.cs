@@ -64,9 +64,12 @@ namespace Project_ecomm.Controllers
                     Address = model.Address,
                     OrderDate = DateTime.Now,
                     TotalAmount = cart.Sum(x => x.Product.Price * x.Quantity)
+                
+                
                 };
-
+                order.UserId = User.Identity.GetUserId();
                 db.Orders.Add(order);
+                order.Status = "Pending";
                 db.SaveChanges(); // Generates Order Id
 
                 // Create OrderDetails
