@@ -95,7 +95,8 @@ namespace Project_ecomm.Controllers
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
-            }
+                }
+
         }
 
         //
