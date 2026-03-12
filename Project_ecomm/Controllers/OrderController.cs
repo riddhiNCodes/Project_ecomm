@@ -59,7 +59,7 @@ namespace Project_ecomm.Controllers
                 Order order = new Order
                 {
                     CustomerName = model.CustomerName,
-                    Email = model.Email,
+                    Email = User.Identity.Name,
                     Phone = model.PhoneNumber,
                     Address = model.Address,
                     OrderDate = DateTime.Now,
@@ -112,10 +112,10 @@ namespace Project_ecomm.Controllers
         [Authorize]
         public ActionResult MyOrders()
         {
-            string userEmail = User.Identity.GetUserName();
+            var userId = User.Identity.GetUserId();
 
             var orders = db.Orders
-                           .Where(o => o.Email == userEmail)
+                           .Where(o => o.UserId == userId)
                            .OrderByDescending(o => o.OrderDate)
                            .ToList();
 

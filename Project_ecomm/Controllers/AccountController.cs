@@ -68,34 +68,68 @@ namespace Project_ecomm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
+
+            //// This doesn't count login failures towards account lockout
+            //// To enable password failures to trigger account lockout, change to shouldLockout: true
+            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            //switch (result)
+            //{
+            //    case SignInStatus.Success:
+            //        var user = await UserManager.FindByEmailAsync(model.Email);
+
+            //        if (await UserManager.IsInRoleAsync(user.Id, "Admin"))
+            //        {
+            //            return RedirectToAction("Index", "Admin");
+            //        }
+
+            //        return RedirectToAction("Index", "Home");
+            //    case SignInStatus.LockedOut:
+            //        return View("Lockout");
+            //    case SignInStatus.RequiresVerification:
+            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+            //    case SignInStatus.Failure:
+            //    default:
+            //        ModelState.AddModelError("", "Invalid login attempt.");
+            //        return View(model);
+            //    }
+
+            var user = await UserManager.FindByEmailAsync(model.Email);
+
+            if (user != null)
             {
-                return View(model);
+                var result = await SignInManager.PasswordSignInAsync(
+                    user.UserName,
+                    model.Password,
+                    model.RememberMe,
+                    shouldLockout: false
+                );
+
+                switch (result)
+                {
+                    case SignInStatus.Success:
+
+                        if (await UserManager.IsInRoleAsync(user.Id, "Admin"))
+                        {
+                            return RedirectToAction("Index", "Admin");
+                        }
+
+                        return RedirectToAction("Index", "Home");
+
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    var user = await UserManager.FindByEmailAsync(model.Email);
-
-                    if (await UserManager.IsInRoleAsync(user.Id, "Admin"))
-                    {
-                        return RedirectToAction("Index", "Admin");
-                    }
-
-                    return RedirectToAction("Index", "Home");
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-                }
+            ModelState.AddModelError("", "Invalid login attempt.");
+            return View(model);
 
         }
 
@@ -162,7 +196,7 @@ namespace Project_ecomm.Controllers
             {
                 var user = new ApplicationUser
                 {
-                    UserName = model.UserName,
+                    UserName = model.Email,
                     Email = model.Email
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);

@@ -52,8 +52,10 @@
                                 @class = "form-control gold-input",
                                 placeholder = "UserName"
                             })
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                         </div>
+
+
                         <!-- EMAIL -->
                         <div class="form-group mb-3">
                             @Html.TextBoxFor(m => m.Email, new
