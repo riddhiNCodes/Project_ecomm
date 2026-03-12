@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Project_ecomm.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Project_ecomm.Controllers
 {
@@ -102,6 +103,20 @@ namespace Project_ecomm.Controllers
             var order = db.Orders.FirstOrDefault(o => o.Id == id);
 
             return View(order);
+        }
+
+
+        [Authorize]
+        public ActionResult MyOrders()
+        {
+            string userEmail = User.Identity.GetUserName();
+
+            var orders = db.Orders
+                           .Where(o => o.Email == userEmail)
+                           .OrderByDescending(o => o.OrderDate)
+                           .ToList();
+
+            return View(orders);
         }
     }
 }

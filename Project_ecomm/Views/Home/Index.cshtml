@@ -128,11 +128,14 @@
                 <span>Rajasthan</span>
             </div>
 
-            <div class="shringr-card royal">
-                <img src="~/Images/States/m2.jpg" />
-                <span>Maharashtra</span>
-                <a href="@Url.Action("State","Product", new { state="Maharashtra"})"></a>
-            </div>
+            <a href="@Url.Action("State","Products", new { State="Maharashtra"})">
+                <div class="shringr-card royal">
+                    <img src="~/Images/States/m2.jpg" />
+                    <span>Maharashtra</span>
+            
+        </div>
+             </a>
+
 
             <div class="shringr-card royal">
                 <img src="~/Images/States/g1.jpg" />

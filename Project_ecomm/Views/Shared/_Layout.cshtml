@@ -80,36 +80,41 @@
                                 </a>
                             </li>*@
 
-                        <ul class="navbar-nav ms-auto align-items-center">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <li class="nav-item me-2 text-white">
-                                    Hello, <strong>@User.Identity.GetUserName()</strong>
-                                </li>
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item me-2 text-white">
+                                Hello, <strong>@User.Identity.GetUserName()</strong>
+                            </li>
 
-                                <li class="nav-item">
-                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        <button type="submit" class="btn btn-link nav-link text-danger">
-                                            Logout
-                                        </button>
-                                    }
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Login", "Account")">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Register", "Account")">Register</a>
-                                </li>
-                            }
+                            <li class="nav-item">
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-link nav-link text-danger">
+                                        Logout
+                                    </button>
+                                }
+                            </li>
 
-                        </ul>
+                            <li>
+                                <a href="@Url.Action("MyOrders","Order")">My Orders</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Login", "Account")">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Register", "Account")">Register</a>
+                            </li>
+                        }
 
                     </ul>
+
+                    </ul>
+                    
                 </div>
             </div>
         </nav>

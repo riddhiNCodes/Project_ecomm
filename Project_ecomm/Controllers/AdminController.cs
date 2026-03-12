@@ -117,5 +117,38 @@ namespace Project_ecomm.Controllers
             return RedirectToAction("ProductList");
         }
 
+        public ActionResult Orders()
+        {
+            var orders = db.Orders
+                           .OrderByDescending(o => o.OrderDate)
+                           .ToList();
+
+            return View(orders);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateOrderStatus(int id, string status)
+        {
+            var order = db.Orders.Find(id);
+
+            if (order != null)
+            {
+                order.Status = status;
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Orders");
+        }
+        public ActionResult OrderDetails(int id)
+        {
+            var order = db.Orders
+                          .Include("OrderDetails.Product")
+                          .FirstOrDefault(o => o.Id == id);
+
+            return View(order);
+        }
     }
+
+
+
 }
