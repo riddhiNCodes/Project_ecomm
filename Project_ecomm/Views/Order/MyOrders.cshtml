@@ -20,9 +20,9 @@
             <p><strong>Email:</strong> @user.Email</p>
             <p><strong>Phone:</strong> @user.Phone</p>
             @*<a href="@Url.Action("EditProfile","Account")"
-               class="btn btn-outline-warning">
-                Edit Profile
-            </a>*@
+                   class="btn btn-outline-warning">
+                    Edit Profile
+                </a>*@
         </div>
     }
 
@@ -44,6 +44,8 @@
                     <th>Order ID</th>
                     <th>Date</th>
                     <th>Total</th>
+                    <th>Payment</th>
+                    <th>Delivery Status</th>
                     <th>Details</th>
                 </tr>
             </thead>
@@ -52,11 +54,38 @@
                 @foreach (var order in Model)
                 {
                     <tr>
-                        <td>@order.Id</td>
+                        <td>#@order.Id</td>
                         <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
                         <td>₹ @order.TotalAmount</td>
+
                         <td>
-                            <a href="@Url.Action("OrderSuccessPage","Order", new { id = order.Id })"
+                            @if (order.PaymentMethod == "Online Payment")
+                            {
+                                <span class="badge bg-success">Paid</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">Cash on Delivery</span>
+                            }
+                        </td>
+
+                        <td>
+                            @if (order.Status == "Pending")
+                            {
+                                <span class="badge bg-secondary">Pending</span>
+                            }
+                            else if (order.Status == "Shipped")
+                            {
+                                <span class="badge bg-primary">Shipped</span>
+                            }
+                            else if (order.Status == "Delivered")
+                            {
+                                <span class="badge bg-success">Delivered</span>
+                            }
+                        </td>
+
+                        <td>
+                            <a href="@Url.Action("orderdetails","Order", new { id = order.Id })"
                                class="btn btn-sm btn-dark">
                                 View
                             </a>
@@ -65,6 +94,7 @@
                 }
             </tbody>
         </table>
+
     }
 
 </div>

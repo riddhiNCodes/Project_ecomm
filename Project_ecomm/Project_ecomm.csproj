@@ -234,6 +234,10 @@
     <Compile Include="Migrations\202603121446327_new.Designer.cs">
       <DependentUpon>202603121446327_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202603132014275_paymentmode.cs" />
+    <Compile Include="Migrations\202603132014275_paymentmode.Designer.cs">
+      <DependentUpon>202603132014275_paymentmode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminDashboardViewModel.cs" />
@@ -380,6 +384,7 @@
     <Content Include="Views\Admin\CustomerOrders.cshtml" />
     <Content Include="Views\Account\editprofile.cshtml" />
     <Content Include="Views\Order\Payment.cshtml" />
+    <Content Include="Views\Order\orderdetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202603121446327_new.resx">
       <DependentUpon>202603121446327_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202603132014275_paymentmode.resx">
+      <DependentUpon>202603132014275_paymentmode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

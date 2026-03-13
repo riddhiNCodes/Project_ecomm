@@ -1,0 +1,67 @@
+﻿@model Project_ecomm.Models.Order
+@{
+    ViewBag.Title = "Order details";
+}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Order Details</h2>
+
+    <div class="card mb-4 p-3">
+
+        <p><strong>Order ID :</strong> #@Model.Id</p>
+
+        <p><strong>Customer :</strong> @Model.CustomerName</p>
+
+        <p><strong>Email id :</strong> @Model.Email</p>
+
+        <p><strong>Address :</strong> @Model.Address</p>
+
+        <p><strong>Date :</strong> @Model.OrderDate</p>
+
+        <p><strong>Status :</strong> @Model.Status</p>
+
+    </div>
+
+    <h4>Products</h4>
+
+    <table class="table table-bordered">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>
+                        <img src="@Url.Content(item.Product.ImageUrl)" width="120" height="80" class="rounded" />
+
+
+                    </td>
+
+                    <td>@item.Product.Name</td>
+
+                    <td>₹@item.Product.Price</td>
+
+                    <td>@item.Quantity</td>
+
+                    <td>₹@(item.Product.Price * item.Quantity)</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

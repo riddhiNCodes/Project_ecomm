@@ -208,7 +208,12 @@ namespace Project_ecomm.Controllers
             if (cart == null || !cart.Any())
                 return RedirectToAction("Index", "Cart");
 
+            
+
             decimal total = cart.Sum(x => x.Product.Price * x.Quantity);
+
+            ViewBag.DisplayAmount = total;
+
             int amount = Convert.ToInt32(total * 100);
 
             string key = ConfigurationManager.AppSettings["RazorpayKey"];
@@ -223,6 +228,8 @@ namespace Project_ecomm.Controllers
             options.Add("receipt", Guid.NewGuid().ToString());
 
             Razorpay.Api.Order razorpayOrder = client.Order.Create(options);
+
+
 
             ViewBag.OrderId = razorpayOrder["id"].ToString();
             ViewBag.Amount = amount;
@@ -275,7 +282,9 @@ namespace Project_ecomm.Controllers
                 Address = model.Address,
                 OrderDate = DateTime.Now,
                 TotalAmount = total,
-                Status = "Paid",
+                Status = "Pending",
+                PaymentMethod = "Online Payment",  
+
                 UserId = User.Identity.GetUserId()
             };
 
