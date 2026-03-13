@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Payment";
+}
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<div class="container mt-5 text-center">
+    <h3>Total Amount: ₹ @ViewBag.Amount</h3>
+
+    <h2>Complete Your Payment</h2>
+    <h4>Total Amount: ₹@(ViewBag.Amount * 100)</h4>
+
+    <button id="rzp-button" class="btn btn-success mt-3">
+        Pay Now
+    </button>
+
+</div>
+
+<script>
+
+var options = {
+    "key": "@ViewBag.Key",
+    "amount": "@ViewBag.Amount",
+    "currency": "INR",
+    "name": "Shaadi Shringar",
+    "description": "Order Payment",
+    "order_id": "@ViewBag.OrderId",
+
+    "handler": function (response) {
+
+        alert("Payment Successful!");
+
+        window.location.href = "/Order/OrderSuccessPage";
+
+    },
+
+    "prefill": {
+        "name": "",
+        "email": "",
+        "contact": ""
+    },
+
+    "theme": {
+        "color": "#b76e79"
+    }
+
+};
+
+var rzp1 = new Razorpay(options);
+
+document.getElementById('rzp-button').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+
+</script>
