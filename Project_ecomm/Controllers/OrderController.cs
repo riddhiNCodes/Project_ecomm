@@ -56,13 +56,12 @@ namespace Project_ecomm.Controllers
 
             try
             {
-                // If Cash on Delivery
                 if (model.PaymentMethod == "Cash on Delivery")
                 {
                     Models.Order order = new Models.Order
                     {
                         CustomerName = model.CustomerName,
-                        Email = User.Identity.Name,
+                        Email = model.Email,
                         Phone = model.PhoneNumber,
                         Address = model.Address,
                         OrderDate = DateTime.Now,
@@ -90,10 +89,12 @@ namespace Project_ecomm.Controllers
                     db.SaveChanges();
 
                     Session["Cart"] = null;
+                    ViewBag.Method = model.PaymentMethod;
 
-                    return RedirectToAction("Payment", new { orderId = order.Id });
+                    return RedirectToAction("OrderSuccessPage", new { id = order.Id });
+               
+                
                 }
-
                 // If Online Payment
                 if (model.PaymentMethod == "Online Payment")
                 {
@@ -178,11 +179,10 @@ namespace Project_ecomm.Controllers
         //    }
         //}
 
-        public ActionResult OrderSuccessPage()
+        public ActionResult OrderSuccessPage(int id)
         {
-            int orderId = Convert.ToInt32(Session["OrderId"]);
+            var order = db.Orders.FirstOrDefault(o => o.Id == id);
 
-            var order = db.Orders.Find(orderId);
 
             return View(order);
         }
@@ -201,17 +201,15 @@ namespace Project_ecomm.Controllers
         }
 
 
-
-        public ActionResult Payment(int orderId)
+        public ActionResult Payment()
         {
             var cart = Session["Cart"] as List<CartItem>;
 
+            if (cart == null || !cart.Any())
+                return RedirectToAction("Index", "Cart");
+
             decimal total = cart.Sum(x => x.Product.Price * x.Quantity);
-
             int amount = Convert.ToInt32(total * 100);
-
-            // Store OrderId in session
-            Session["OrderId"] = orderId;
 
             string key = ConfigurationManager.AppSettings["RazorpayKey"];
             string secret = ConfigurationManager.AppSettings["RazorpaySecret"];
@@ -222,7 +220,7 @@ namespace Project_ecomm.Controllers
 
             options.Add("amount", amount);
             options.Add("currency", "INR");
-            options.Add("receipt", orderId.ToString());
+            options.Add("receipt", Guid.NewGuid().ToString());
 
             Razorpay.Api.Order razorpayOrder = client.Order.Create(options);
 
@@ -232,6 +230,7 @@ namespace Project_ecomm.Controllers
 
             return View();
         }
+
         //public ActionResult Payment()
         //{
         //    var cart = Session["Cart"] as List<CartItem>;
@@ -258,11 +257,13 @@ namespace Project_ecomm.Controllers
 
         //    return View();
         //}
-
         public ActionResult PaymentSuccess()
         {
             var cart = Session["Cart"] as List<CartItem>;
             var model = Session["OrderModel"] as OrderViewModel;
+
+            if (cart == null || model == null)
+                return RedirectToAction("Index", "Home");
 
             decimal total = cart.Sum(x => x.Product.Price * x.Quantity);
 
@@ -300,6 +301,7 @@ namespace Project_ecomm.Controllers
 
             return RedirectToAction("OrderSuccessPage", new { id = order.Id });
         }
+
 
     }
 }

@@ -54,7 +54,7 @@
                     <h5>Payment Method</h5>
 
                     <div class="form-check">
-                        @Html.RadioButtonFor(m => m.PaymentMethod, "Cash on Delivery", new { @class = "form-check-input" })
+                        @Html.RadioButtonFor(m => m.PaymentMethod, "Cash on Delivery", new { @class = "form-check-input", @checked = "checked" })
                         <label class="form-check-label">Cash on Delivery</label>
                     </div>
 
@@ -63,7 +63,7 @@
                         <label class="form-check-label">Online Payment</label>
                     </div>
 
-                  
+
 
                     <button type="submit" class="submit-btn">
                         Place Order

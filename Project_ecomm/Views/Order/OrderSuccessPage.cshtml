@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Project_ecomm.Models.Order
+
+@{
     ViewBag.Title = "Order Success";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -17,7 +19,7 @@
         padding: 50px;
         border-radius: 20px;
         text-align: center;
-        box-shadow: 0 15px 40px rgba(183, 110, 121, 0.2);
+        box-shadow: 0 15px 40px rgba(183,110,121,0.2);
         max-width: 600px;
         width: 100%;
         border: 1px solid #f1d4d9;
@@ -44,7 +46,7 @@
     .order-id {
         font-weight: 600;
         color: #333;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .btn-luxury {
@@ -64,32 +66,46 @@
 
 <div class="success-wrapper">
     <div class="success-card">
-        <h2>🎉 Payment Successful</h2>
 
-        <a href="/Order/MyOrders" class="btn btn-primary">
-            View My Orders
-        </a>
+        <div class="success-icon">
+            🎉
+        </div>
 
         <div class="success-title">
-            Thank You for Your Order!
+            Payment Successful
         </div>
 
         <div class="success-text">
-            Your order has been placed successfully.
-            We are preparing it with love and care 💖
+            Thank you for your order!
+            Your payment has been received and your order is being prepared with care 💖
         </div>
 
-        <div class="order-id">
-            @*Order ID: <strong>#@ViewBag.OrderId</strong>*@
-            Order ID: <strong>@Model.Id</strong>
-        </div>
-        <div class="success-icon">
-            <p>Total Amount: ₹ @Model.TotalAmount</p>
-        </div>
+        @if (Model != null)
+        {
+            <div class="order-id">
+                Order ID: <strong>#@Model.Id</strong>
+            </div>
+
+            <p><strong>Total Amount:</strong> ₹ @Model.TotalAmount</p>
+        }
+        else
+        {
+            <div class="order-id">
+                Your order has been placed successfully.
+            </div>
+        }
+
+        <br />
+
+        <a href="@Url.Action("MyOrders", "Order")" class="btn btn-primary">
+            View My Orders
+        </a>
+
+        <br /><br />
 
         <a href="@Url.Action("Index", "Home")" class="btn-luxury">
             Continue Shopping
         </a>
+
     </div>
 </div>
-
